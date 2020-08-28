@@ -64,10 +64,9 @@
             for (var key in rateData) {
                 if (rateData.hasOwnProperty(key)) {
                     tableData.push({
-                        'Currency': key,
-                        'Value': rateData[key],
+                        'Date': key,
+                        'CAD': rateData[key]["CAD"],
                         'BaseCurrency': 'USD',
-                        'Date': date 
                     });
                 }
             }
