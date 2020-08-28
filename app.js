@@ -43,7 +43,7 @@
         // get the base currency selected
         //var urlParam = tableau.connectionData.baseCurr;
         var accessKey = tableau.connectionData.key;
-        var baseUrl = 'http://data.fixer.io/api/latest?access_key=' + accessKey;
+        var baseUrl = 'http://data.fixer.io/api/latest?access_key=' + accessKey + '&base=CAD&symbols=USD';
        // var baseUrl = 'https://api.fixer.io/latest?base=' + urlParam;
 
         tableau.log(baseUrl);
@@ -57,7 +57,7 @@
                     tableData.push({
                         'Currency': key,
                         'Value': rateData[key],
-                        'BaseCurrency': 'EUR',
+                        'BaseCurrency': 'CAD',
                         'Date': date 
                     });
                 }
