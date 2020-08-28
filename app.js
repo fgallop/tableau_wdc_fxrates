@@ -40,12 +40,21 @@
 
     myConnector.getData = function (table, doneCallback) {
 
-        // get the base currency selected
-        //var urlParam = tableau.connectionData.baseCurr;
+        
+        var today = new Date();
+        var last30days = new Date(new Date().getTime()-(30*24*60*60*1000));
+        
         var accessKey = tableau.connectionData.key;
-        var baseUrl = 'http://data.fixer.io/api/latest?access_key=' + accessKey + '&base=CAD&symbols=USD';
-       // var baseUrl = 'https://api.fixer.io/latest?base=' + urlParam;
-
+        
+        var baseUrl = 'https://api.exchangeratesapi.io/api/history?base=USD&symbols=CAD&start_at='
+            + last30days.getFullYear()            
+            + '-' + last30days.getMonth()
+            + '-' + last30days.getDate()
+            +'&end_at='
+            + today.getFullYear()            
+            + '-' + today.getMonth()
+            + '-' + today.getDate();
+        
         tableau.log(baseUrl);
 
         $.getJSON(baseUrl, function (resp) {
@@ -57,7 +66,7 @@
                     tableData.push({
                         'Currency': key,
                         'Value': rateData[key],
-                        'BaseCurrency': 'CAD',
+                        'BaseCurrency': 'USD',
                         'Date': date 
                     });
                 }
