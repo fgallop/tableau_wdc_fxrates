@@ -41,22 +41,22 @@
         
         tableau.log('today:' + today);
         tableau.log(today.getFullYear()            
-            + '-' + today.getMonth()+1
+            + '-' + (today.getMonth()+1)
             + '-' + today.getDate());
         tableau.log('last30days:' + last30days);
         tableau.log(last30days.getFullYear()            
-            + '-' + last30days.getMonth()+1
+            + '-' + (last30days.getMonth()+1)
             + '-' + last30days.getDate());
         
         var accessKey = tableau.connectionData.key;
         
         var baseUrl = 'https://api.exchangeratesapi.io/api/history?base=USD&symbols=CAD&start_at='
             + last30days.getFullYear()            
-            + '-' + last30days.getMonth()
+            + '-' + (last30days.getMonth()+1)
             + '-' + last30days.getDate()
             +'&end_at='
             + today.getFullYear()            
-            + '-' + today.getMonth()
+            + '-' + (today.getMonth()+1)
             + '-' + today.getDate();
         
         tableau.log(baseUrl);
