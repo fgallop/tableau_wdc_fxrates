@@ -39,6 +39,15 @@
         var today = new Date();
         var last30days = new Date(new Date().getTime()-(30*24*60*60*1000));
         
+        tableau.log('today:' + today);
+        tableau.log(today.getFullYear()            
+            + '-' + today.getMonth()+1
+            + '-' + today.getDate());
+        tableau.log('last30days:' + last30days);
+        tableau.log(last30days.getFullYear()            
+            + '-' + last30days.getMonth()+1
+            + '-' + last30days.getDate());
+        
         var accessKey = tableau.connectionData.key;
         
         var baseUrl = 'https://api.exchangeratesapi.io/api/history?base=USD&symbols=CAD&start_at='
