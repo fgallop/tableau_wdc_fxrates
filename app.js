@@ -37,7 +37,7 @@
 
         
         var today = new Date();
-        var last30days = new Date(new Date().getTime()-(30*24*60*60*1000));
+        var last30days = new Date(new Date().getTime()-(90*24*60*60*1000));
         
         tableau.log('today:' + today);
         tableau.log(today.getFullYear()            
